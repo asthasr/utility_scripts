@@ -19,7 +19,7 @@ log.info("Starting command ({})".format(command))
 while True:
     status = os.system(command)
 
-    if status & 2:
+    if status & SIGINT:
         log.error("SIGINT received; terminating")
         sys.exit(status)
     else:
